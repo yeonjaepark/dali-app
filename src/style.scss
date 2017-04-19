@@ -1,4 +1,81 @@
+$fontcolor:  rgb(10%, 10%, 10%);
+$backgroundcolor: rgb(90%, 90%, 90%);
+
+
 body {
   font-family: "Roboto", sans-serif;
-  background: darken(white, 0.2);
+  color: $fontcolor;
+  background-color: $backgroundcolor;
+  margin: 0;
+}
+
+
+#search-bar {
+  background-color: white;
+
+  input {
+    margin: 10px 3% 10px 3%;
+    font-size: 1.5em;
+    border-radius: .25em;
+  }
+}
+
+
+#video-section {
+  display: flex;
+  margin: 20px 3% 20px 3%;
+  flex-flow: row nowrap;
+
+  .video-detail {
+    width: 65vw;
+  }
+
+  li {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    width: 35vw;
+    padding: 15px;
+    background-color: white;
+  }
+
+  li:hover {
+    background: darken( $backgroundcolor, 10% );
+    color: rgb(0,67,175);
+  }
+
+  .details {
+    margin-top: 20px;
+    background-color: white;
+    padding: 4px 15px 5px 15px;
+  }
+
+  .title {
+    margin-left: 10px;
+  }
+
+  #main-title {
+    font-size: 30px;
+  }
+}
+
+
+
+@media only screen and (max-width: 640px) {
+  #video-section {
+    flex-flow: column nowrap;
+    margin: 5%;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+
+    .video-detail {
+      width: 100%;
+    }
+
+    li {
+      width: 100%;
+      margin: 15px 0 0 -20px;
+    }
+  }
 }
