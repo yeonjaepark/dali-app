@@ -33,7 +33,6 @@ export function createPost(post, history) {
 }
 
 export function updatePost(post) {
-  console.log(post);
   return (dispatch) => {
     axios.put(`${ROOT_URL}/posts/${post.id}${API_KEY}`, post).then((response) => {
       dispatch({ type: 'FETCH_POST', payload: response.data });
@@ -54,7 +53,6 @@ export function fetchPost(id) {
 }
 
 export function deletePost(id, history) {
-  console.log(id);
   return (dispatch) => {
     axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
       dispatch({ type: 'DELETE_POST', payload: history.push('/') });
