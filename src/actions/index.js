@@ -10,7 +10,7 @@ export const ActionTypes = {
 };
 
 const ROOT_URL = 'http://localhost:9090/api';
-const API_KEY = '?key=y_park';
+const API_KEY = '';
 
 export function fetchPosts() {
   return (dispatch) => {
