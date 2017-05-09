@@ -41,7 +41,6 @@ class Post extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('test');
     this.setState({
       title: nextProps.post.title,
       content: nextProps.post.content,

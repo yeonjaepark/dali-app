@@ -10,7 +10,7 @@ export const ActionTypes = {
 };
 
 const ROOT_URL = 'http://localhost:9090/api';
-const API_KEY = '';
+const API_KEY = '?key=y_park';
 
 export function fetchPosts() {
   return (dispatch) => {
@@ -44,9 +44,8 @@ export function updatePost(post) {
 }
 
 export function fetchPost(id) {
-  const ID = id;
   return (dispatch) => {
-    axios.get(`${ROOT_URL}/posts/${ID}${API_KEY}`).then((response) => {
+    axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
       dispatch({ type: 'FETCH_POST', payload: response.data });
     }).catch((error) => {
       dispatch({ type: 'FETCH_POST_FAIL', payload: error });
