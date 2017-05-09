@@ -54,7 +54,7 @@ class Post extends Component {
   onBlurHandle() {
     this.setState({ editTitle: false, editContent: false, editTags: false, editURL: false });
     const post = {
-      id: this.props.post._id,
+      id: this.props.post.id,
       title: this.state.title,
       content: this.state.content,
       tags: this.state.tags,
@@ -102,7 +102,7 @@ class Post extends Component {
 
   // delete handler
   deleteHandle(event) {
-    this.props.deletePost(this.props.post._id, this.props.history);
+    this.props.deletePost(this.props.post.id, this.props.history);
   }
 
   render() {
