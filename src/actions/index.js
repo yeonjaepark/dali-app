@@ -9,7 +9,7 @@ export const ActionTypes = {
   DELETE_POST: 'DELETE_POST',
 };
 
-const ROOT_URL = 'https://lab5-yeonjaepark.herokuapp.com/';
+const ROOT_URL = 'https://lab5-yeonjaepark.herokuapp.com/api';
 const API_KEY = '?key=y_park';
 
 export function fetchPosts() {
