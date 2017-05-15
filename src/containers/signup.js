@@ -8,12 +8,14 @@ class SignUp extends Component {
     super(props);
 
     this.state = {
+      picture: '',
       author_name: '',
       email: '',
       password: '',
     };
 
     this.onSubmitHandle = this.onSubmitHandle.bind(this);
+    this.pictureHandle = this.pictureHandle.bind(this);
     this.nameHandle = this.nameHandle.bind(this);
     this.emailHandle = this.emailHandle.bind(this);
     this.passwordHandle = this.passwordHandle.bind(this);
@@ -21,16 +23,21 @@ class SignUp extends Component {
 
   onSubmitHandle(event) {
     event.preventDefault();
-    if (this.state.author_name !== '' && this.state.email !== '' && this.state.password !== '') {
+    if (this.state.picture !== '' && this.state.author_name !== '' && this.state.email !== '' && this.state.password !== '') {
       const user = {
+        picture: this.state.picture,
         author_name: this.state.author_name,
         email: this.state.email,
         password: this.state.password,
       };
 
       this.props.signupUser(user, this.props.history);
-      this.setState({ author_name: '', email: '', password: '' });
+      this.setState({ picture: '', author_name: '', email: '', password: '' });
     }
+  }
+
+  pictureHandle(event) {
+    this.setState({ picture: event.target.value });
   }
 
   nameHandle(event) {
@@ -50,6 +57,7 @@ class SignUp extends Component {
       <div id="forms-page">
         <div> Sign Up </div>
         <form onSubmit={this.onSubmitHandle} >
+          <input onChange={this.pictureHandle} value={this.state.picture} type="text" placeholder="Picture URL" />
           <input onChange={this.nameHandle} value={this.state.author_name} type="text" placeholder="Name" />
           <input onChange={this.emailHandle} value={this.state.email} type="text" placeholder="Email" />
           <input onChange={this.passwordHandle} value={this.state.password} type="text" placeholder="Password" />

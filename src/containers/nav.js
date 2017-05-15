@@ -27,6 +27,9 @@ const Nav = (props) => {
       <NavLink className="links" exact to="/">Puppy Love</NavLink>
       <div>
         {loggedIn}
+        <NavLink to="/users">
+          <button>Users</button>
+        </NavLink>
         <NavLink to="/posts/new">
           <button>New Post</button>
         </NavLink>
@@ -41,6 +44,5 @@ const mapStateToProps = state => (
     auth: state.auth.authenticated,
   }
 );
-
 
 export default withRouter(connect(mapStateToProps, actions)(Nav));

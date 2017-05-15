@@ -5,6 +5,8 @@ import Posts from '../containers/posts';
 import NewPost from '../containers/new-post';
 import SignIn from '../containers/signin';
 import SignUp from '../containers/signup';
+import Users from '../containers/users';
+import User from '../containers/user';
 import Nav from '../containers/nav';
 import requireAuth from '../containers/requireAuth';
 import '../style.scss';
@@ -20,6 +22,8 @@ const App = (props) => {
           <Route exact path="/signup" component={SignUp} />
           <Route path="/posts/new" component={requireAuth(NewPost)} />
           <Route path="/posts/:postID" component={Post} />
+          <Route exact path="/users" component={Users} />
+          <Route path="/users/:userID" component={requireAuth(User)} />
           <Route render={() => (<div> post not found </div>)} />
         </Switch>
       </div>

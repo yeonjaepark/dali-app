@@ -10,6 +10,8 @@ export const ActionTypes = {
   AUTH_USER: 'AUTH_USER',
   DEAUTH_USER: 'DEAUTH_USER',
   AUTH_ERROR: 'AUTH_ERROR',
+  FETCH_USERS: 'FETCH_USERS',
+  FETCH_USER: 'FETCH_USER',
 };
 
 // const ROOT_URL = 'http://localhost:9090/api';
@@ -107,6 +109,26 @@ export function signupUser(user, history) {
       history.push('/');
     }).catch((error) => {
       dispatch(authError(`Sign Up Failed: ${error.response.data}`));
+    });
+  };
+}
+
+export function fetchUsers() {
+  return (dispatch) => {
+    axios.get(`${ROOT_URL}/users`).then((response) => {
+      dispatch({ type: 'FETCH_USERS', payload: response.data });
+    }).catch((error) => {
+      dispatch({ type: 'FETCH_USERS_FAIL', payload: error });
+    });
+  };
+}
+
+export function fetchUser(id) {
+  return (dispatch) => {
+    axios.get(`${ROOT_URL}/users/${id}`).then((response) => {
+      dispatch({ type: 'FETCH_USER', payload: response.data });
+    }).catch((error) => {
+      dispatch({ type: 'FETCH_USER_FAIL', payload: error });
     });
   };
 }
