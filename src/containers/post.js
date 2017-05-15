@@ -116,7 +116,7 @@ class Post extends Component {
 
     const tags = this.state.editTags ?
       <div><Textarea className="textarea" value={this.state.tags} onChange={this.handleTags} onBlur={this.onBlurHandle}> { this.props.post.tags } </Textarea></div>
-      : <div id="tags" onClick={this.editTags}> { this.props.post.tags } </div>;
+      : <div id="tags" onClick={this.editTags}> Tags: { this.props.post.tags } </div>;
 
     const url = this.state.editURL ?
       <div><Textarea className="textarea" value={this.state.cover_url} onChange={this.handleURL} onBlur={this.onBlurHandle}> { this.props.post.cover_url } </Textarea></div>
@@ -129,6 +129,7 @@ class Post extends Component {
           {title}
           {content}
           {tags}
+          <div id="tags"> By: {this.props.post.author} </div>
           <button onClick={this.deleteHandle}>Delete</button>
         </div>
       </div>

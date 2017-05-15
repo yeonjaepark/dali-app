@@ -34,10 +34,15 @@ body {
       border: white solid 2px;
       color: white;
       background-color: rgba(251,98,246,.3);
+      margin-left: 5px;
     }
 
     button:hover {
       cursor: pointer;
+    }
+
+    div {
+      display: inline;
     }
   }
 }
@@ -139,7 +144,7 @@ body {
   }
 }
 
-#create-post {
+#forms-page {
   width: 80%;
 
   div {

@@ -54,7 +54,7 @@ class NewPost extends Component {
 
   render() {
     return (
-      <div id="create-post">
+      <div id="forms-page">
         <div> Create a new post! </div>
         <form onSubmit={this.onSubmitHandle} >
           <input onChange={this.titleHandle} value={this.state.title} type="text" placeholder="Title" />
