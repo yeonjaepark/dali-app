@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../actions';
 
-class User extends Component {
+
+class Member extends Component {
   constructor(props) {
     super(props);
 
@@ -11,27 +12,28 @@ class User extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userID);
+    this.props.fetchMember(this.props.match.params.id);
   }
 
   render() {
     return (
       <div id="profile">
-        <img src={this.props.user.picture} alt="" />
+        <img src={`http://mappy.dali.dartmouth.edu/${this.props.member.iconUrl}`} alt="" />
         <div id="profile-info">
-          <div id="name"> Name: {this.props.user.author_name} </div>
-          <div id="email"> Email: {this.props.user.email} </div>
+          <div id="name"> {this.props.member.name} </div>
+          <div id="email"> {this.props.member.message} </div>
+          <a href={this.props.member.url}> Click me! </a>
         </div>
       </div>
     );
   }
 }
+
 // connects particular parts of redux state to this components props
 const mapStateToProps = state => (
   {
-    user: state.users.user,
+    member: state.members.member,
   }
 );
 
-
-export default withRouter(connect(mapStateToProps, actions)(User));
+export default withRouter(connect(mapStateToProps, actions)(Member));

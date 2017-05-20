@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Post from '../containers/post';
-import Posts from '../containers/posts';
-import NewPost from '../containers/new-post';
-import SignIn from '../containers/signin';
-import SignUp from '../containers/signup';
-import Users from '../containers/users';
-import User from '../containers/user';
+import Member from '../containers/member';
+import Members from '../containers/members';
 import Nav from '../containers/nav';
-import requireAuth from '../containers/requireAuth';
 import '../style.scss';
+
+const About = (props) => {
+  return (
+    <img src="https://static1.squarespace.com/static/551cbdc5e4b0cd11d2597487/t/563e8959e4b0dc853ed2db49/1446938972012/" alt="" />
+  );
+};
 
 const App = (props) => {
   return (
@@ -17,13 +17,9 @@ const App = (props) => {
       <div id="main-container">
         <Nav />
         <Switch>
-          <Route exact path="/" component={Posts} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route path="/posts/new" component={requireAuth(NewPost)} />
-          <Route path="/posts/:postID" component={Post} />
-          <Route exact path="/users" component={Users} />
-          <Route path="/users/:userID" component={requireAuth(User)} />
+          <Route exact path="/" component={Members} />
+          <Route path="/members/:id" component={Member} />
+          <Route path="/about" component={About} />
           <Route render={() => (<div> post not found </div>)} />
         </Switch>
       </div>

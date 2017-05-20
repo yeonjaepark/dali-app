@@ -2,22 +2,22 @@ import { ActionTypes } from '../actions';
 
 const initialState = {
   all: [],
-  post: {},
+  member: {},
 };
 
-const PostsReducer = (state = initialState, action) => {
+const MembersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.FETCH_POST: {
+    case ActionTypes.FETCH_MEMBER: {
       const newState = {
         all: state.all,
-        post: action.payload,
+        member: action.payload,
       };
       return newState;
     }
-    case ActionTypes.FETCH_POSTS: {
+    case ActionTypes.FETCH_MEMBERS: {
       const newState = {
         all: action.payload,
-        post: state.post,
+        member: state.member,
       };
       return newState;
     }
@@ -26,4 +26,4 @@ const PostsReducer = (state = initialState, action) => {
   }
 };
 
-export default PostsReducer;
+export default MembersReducer;
